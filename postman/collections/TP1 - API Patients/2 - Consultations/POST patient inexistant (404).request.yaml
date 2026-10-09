@@ -1,0 +1,21 @@
+$kind: http-request
+url: "{{baseUrl}}/api/consultations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "patient": "64f9e2c8a7b1b23d45f67890",
+      "date": "2026-10-05",
+      "motif": "Contrôle régulier",
+      "traitement": "Aucun",
+      "medecin": "Dr Helmi",
+      "notes": "Patient en bonne santé"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test("Status 404", () => pm.response.to.have.status(404));
+    language: text/javascript
+order: 3000

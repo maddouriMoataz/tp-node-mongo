@@ -1,0 +1,16 @@
+$kind: http-request
+url: "{{baseUrl}}/api/consultations/{{consultationId}}"
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "statut": "Terminée"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test("Status 200", () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 8000

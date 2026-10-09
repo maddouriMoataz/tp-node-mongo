@@ -1,0 +1,14 @@
+### Create patient (expect 201)
+POST http://localhost:5000/api/patients
+Content-Type: application/json
+
+{ "nom": "Ben Salah", "prenom": "Ali", "age": 34, "medecin": "Dr Helmi" }
+
+### Missing name (expect 400)
+POST http://localhost:5000/api/patients
+Content-Type: application/json
+
+{ "prenom": "Ali" }
+
+### List all (expect 200)
+GET http://localhost:5000/api/patients

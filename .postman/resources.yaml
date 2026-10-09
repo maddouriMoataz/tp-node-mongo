@@ -1,0 +1,13 @@
+# Use this workspace to collaborate
+workspace:
+  id: 893eb835-e5c3-4ae4-82fb-0addf2605bc5
+
+cloudResources:
+  collections:
+    ../postman/collections/TP1 - API Patients: 4d4723b0-da7b-42f6-99bd-998aac7ea255
+
+# All resources in the `postman/` folder are automatically registered in Local View.
+# Point to additional files outside the `postman/` folder to register them individually. Example:
+#localResources:
+#  collections:
+#    - ../tests/E2E Test Collection/

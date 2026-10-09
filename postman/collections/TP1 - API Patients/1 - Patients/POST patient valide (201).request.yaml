@@ -1,0 +1,22 @@
+$kind: http-request
+url: "{{baseUrl}}/api/patients"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "nom": "Ben Salah",
+      "prenom": "Ali",
+      "age": 34,
+      "telephone": "22123456",
+      "medecin": "Dr Helmi"
+    }
+scripts:
+  - type: afterResponse
+    code: |-
+      pm.test("Status 201", () => pm.response.to.have.status(201));
+      pm.collectionVariables.set("patientId", pm.response.json().id);
+    language: text/javascript
+order: 1000

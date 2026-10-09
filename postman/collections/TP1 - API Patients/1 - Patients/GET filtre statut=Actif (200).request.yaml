@@ -1,0 +1,10 @@
+$kind: http-request
+url: "{{baseUrl}}/api/patients?statut=Actif"
+method: GET
+queryParams:
+  statut: Actif
+scripts:
+  - type: afterResponse
+    code: pm.test("Status 200", () => pm.response.to.have.status(200));
+    language: text/javascript
+order: 6000

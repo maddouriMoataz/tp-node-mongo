@@ -1,0 +1,21 @@
+$kind: http-request
+url: "{{baseUrl}}/api/consultations"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "patient": "{{patientId}}",
+      "date": "2026-10-05",
+      "motif": "",
+      "traitement": "Aucun",
+      "medecin": "Dr Helmi",
+      "notes": "Patient en bonne santé"
+    }
+scripts:
+  - type: afterResponse
+    code: pm.test("Status 400", () => pm.response.to.have.status(400));
+    language: text/javascript
+order: 2000
